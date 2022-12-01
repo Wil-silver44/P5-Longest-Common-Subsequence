@@ -11,13 +11,17 @@ int main()
 
     cout << "object created." << endl;
 
-    string X = "AGGTAB";
-    string Y = "GXTXAYB";
+    cout << "finding lcs..." << endl;
 
-    int m = X.length();
-    int n = Y.length();
+    testSeeker.Lcs();
 
-    cout << "The longest common subsequence of " << X << " and " << Y << " is " << testSeeker.Lcs(X, Y, m, n) << " characters long." << endl << endl;
+    cout << "lcs found." << endl;
+
+    cout << "lcs of strings" << endl;
+
+    cout << testSeeker.GetStringOne() << "\nand\n" << testSeeker.GetStringTwo() << "\nis " << testSeeker.GetLcs() << " characters long." << endl;
+    
+
 
     cout << "OPERATIONS COMPLETE, DEALLOCATING..." << endl;
 }

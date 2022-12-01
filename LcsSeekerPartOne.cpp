@@ -28,32 +28,32 @@ LcsSeekerPartOne::LcsSeekerPartOne()
     }
 }
 
-int LcsSeekerPartOne::Lcs(string xString, string yString, int m, int n)
+void LcsSeekerPartOne::Lcs()
 {
-    int c[m + 1][n + 1];
+    
     int i, j;
   
-    for (i = 0; i <= m; i++) 
+    for (i = 0; i <= this->m; ++i) 
     {
-        for (j = 0; j <= n; j++) 
+        for (j = 0; j <= this->n; ++j) 
         {
             if (i == 0 || j == 0)
             {
-                c[i][j] = 0;
+                this->lcsTable[i][j] = 0;
             }
-            else if (xString.at(i - 1) == yString.at(j - 1))
+            else if (this->firstString.at(i - 1) == this->secondString.at(j - 1))
             {
-                c[i][j] = c[i - 1][j - 1] + 1;
+                this->lcsTable[i][j] = this->lcsTable[i - 1][j - 1] + 1;
             }
             else
             {
-                c[i][j] = max(c[i - 1][j], c[i][j - 1]);
+                this->lcsTable[i][j] = max(this->lcsTable[i - 1][j], this->lcsTable[i][j - 1]);
             }
         }
     }
 
-    return c[m][n];
 }
+
 void LcsSeekerPartOne::printLcs()
 {
     cout << "The Lcs of the strings" << endl;
@@ -61,6 +61,15 @@ void LcsSeekerPartOne::printLcs()
     cout << "and" << endl;
     cout << this->secondString << endl;
 }
+
+int LcsSeekerPartOne::GetLcs()
+{ return this->lcsTable[this->m][this->n]; }
+
+string LcsSeekerPartOne::GetStringOne()
+{ return this->firstString; }
+
+string LcsSeekerPartOne::GetStringTwo()
+{ return this->secondString;}
 
 LcsSeekerPartOne::~LcsSeekerPartOne()
 {
