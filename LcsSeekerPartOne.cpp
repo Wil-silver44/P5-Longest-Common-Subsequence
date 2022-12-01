@@ -52,11 +52,14 @@ int LcsSeekerPartOne::Lcs(string xString, string yString, int m, int n)
         }
     }
 
-    return c[m + 1][n + 1];
+    return c[m][n];
 }
 void LcsSeekerPartOne::printLcs()
 {
-
+    cout << "The Lcs of the strings" << endl;
+    cout << this->firstString << endl;
+    cout << "and" << endl;
+    cout << this->secondString << endl;
 }
 
 LcsSeekerPartOne::~LcsSeekerPartOne()
