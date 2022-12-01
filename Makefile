@@ -11,7 +11,7 @@ OBJECTS = LcsSeekerPartOne.o
 main: main.cpp $(OBJECTS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
-LcsPartOneTest: LcsPartOneTest.cpp LcsSeekerPartOne.o
+LcsPartOneTest: LcsPartOneTest.cpp LcsSeekerPartOne.o LcsTool.o
 	$(CXX) $(CXXFLAGS) -o $@ $^
 clean:
 	rm -rf

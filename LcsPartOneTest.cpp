@@ -11,15 +11,9 @@ int main()
 
     cout << "object created." << endl;
 
-    cout << "finding lcs..." << endl;
+    cout << "running simulation..." << endl;
 
-    testSeeker.Lcs();
-
-    cout << "lcs found." << endl;
-
-    cout << "printing lcs." << endl;
-
-    testSeeker.printLcs();
+    testSeeker.Run();
 
     cout << "OPERATIONS COMPLETE, DEALLOCATING..." << endl;
 }
