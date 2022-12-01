@@ -2,9 +2,30 @@
 
 //header comment goes here
 
+
 LcsSeekerPartOne::LcsSeekerPartOne()
 {
+    this->reader.open(FILE_NAME);
+    if(reader.is_open())
+    {
+        getline(this->reader, this->firstString);
+        getline(this->reader, this->secondString);
+    }
+    else
+    {
+        throw "error opening file";
+    }
+    this->reader.close();
 
+    this->m = this->firstString.length();
+    this->n = this->secondString.length();
+
+    //dynamically create matrix using string lengths.
+    this->lcsTable = new int*[this->m + 1];
+    for(int i = 0; i < (m + 1); ++i)
+    {
+        this->lcsTable[i] = new int[this->n + 1];
+    }
 }
 
 int LcsSeekerPartOne::Lcs(string xString, string yString, int m, int n)
@@ -31,9 +52,19 @@ int LcsSeekerPartOne::Lcs(string xString, string yString, int m, int n)
         }
     }
 
-    return c[m][n];
+    return c[m + 1][n + 1];
 }
 void LcsSeekerPartOne::printLcs()
 {
 
+}
+
+LcsSeekerPartOne::~LcsSeekerPartOne()
+{
+    for(int i = 0; i < (m + 1); ++i)
+    {
+        delete this->lcsTable[i];
+    }
+
+    delete this->lcsTable;
 }
