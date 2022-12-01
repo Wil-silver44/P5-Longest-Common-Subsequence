@@ -35,9 +35,11 @@ class LcsSeekerPartOne
 
     public:
     LcsSeekerPartOne();
-    int Lcs(string xString, string yString, int m, int n);
-    void RevLCSMat(int c, string X, string Y, int i, int j);
+    void Lcs();
     void printLcs();
+    int GetLcs();
+    string GetStringOne();
+    string GetStringTwo();
     ~LcsSeekerPartOne();
 };
 
