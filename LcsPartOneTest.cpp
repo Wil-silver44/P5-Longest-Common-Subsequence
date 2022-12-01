@@ -17,11 +17,9 @@ int main()
 
     cout << "lcs found." << endl;
 
-    cout << "lcs of strings" << endl;
+    cout << "printing lcs." << endl;
 
-    cout << testSeeker.GetStringOne() << "\nand\n" << testSeeker.GetStringTwo() << "\nis " << testSeeker.GetLcs() << " characters long." << endl;
-    
-
+    testSeeker.printLcs();
 
     cout << "OPERATIONS COMPLETE, DEALLOCATING..." << endl;
 }

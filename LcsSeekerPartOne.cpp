@@ -31,7 +31,8 @@ LcsSeekerPartOne::LcsSeekerPartOne()
 void LcsSeekerPartOne::Lcs()
 {
     
-    int i, j;
+    int i; 
+    int j;
   
     for (i = 0; i <= this->m; ++i) 
     {
@@ -56,10 +57,40 @@ void LcsSeekerPartOne::Lcs()
 
 void LcsSeekerPartOne::printLcs()
 {
-    cout << "The Lcs of the strings" << endl;
-    cout << this->firstString << endl;
-    cout << "and" << endl;
-    cout << this->secondString << endl;
+    int index = GetLcs();
+
+    // Create a character array to store the lcs string
+    char lcs[index + 1];
+
+    // Set the terminating character at the end, which we know is at the index value thanks to the Lcs function
+    lcs[index] = '\0'; 
+ 
+    // Start from the right-most-bottom-most corner and store characters one by one in lcs[], building the string back to front
+    int i = this->m;
+    int j = this->n;
+
+    while ((i > 0) && (j > 0)) 
+    {
+        //If current character in the strings are same, then it is part of LCS
+        if (this->firstString.at(i - 1) == this->secondString.at(j - 1)) 
+        {
+            lcs[index - 1] = this->firstString.at(i - 1); // adds current character in result
+            i--;
+            j--;
+            index--; // decrements values
+        }
+ 
+        // If not, then find the larger of two and
+        // go in the direction of larger value
+        else if (this->lcsTable[i - 1][j] > this->lcsTable[i][j - 1])
+            i--;
+        else
+            j--;
+    }
+
+    cout << "lcs of strings" << endl << endl;
+    cout << GetStringOne() << "\n\nand\n\n" << GetStringTwo()
+    << "\n\nis " << lcs << endl;
 }
 
 int LcsSeekerPartOne::GetLcs()
