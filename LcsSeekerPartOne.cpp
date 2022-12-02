@@ -18,6 +18,7 @@ LcsSeekerPartOne::LcsSeekerPartOne()
     {
         getline(this->reader, this->firstString);
         getline(this->reader, this->secondString);
+        this->reader.close();
     }
     else
     {

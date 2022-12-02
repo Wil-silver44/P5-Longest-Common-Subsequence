@@ -6,7 +6,7 @@ CXX = g++
 
 CXXFLAGS = -std=c++14 -g -Wall
 
-OBJECTS = LcsSeekerPartOne.o
+OBJECTS = LcsSimulation.o LcsSeekerPartOne.o LcsTool.o
 
 main: main.cpp $(OBJECTS)
 	$(CXX) $(CXXFLAGS) -o $@ $^

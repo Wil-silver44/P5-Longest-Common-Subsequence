@@ -15,12 +15,9 @@
  *   compute the longest common subsequence, and then reconstruct the subsequence using the "c" array.
  *
  ***************************************************************/
-using std::cout;
-using std::endl;
+
 using std::ifstream;
-using std::max;
 using std::string;
-using std::getline;
 
 class LcsSeekerPartOne
 {

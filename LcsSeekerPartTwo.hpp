@@ -4,6 +4,7 @@
 #include <fstream>
 #include <string>
 #include <bits/stdc++.h>
+#include "LcsTool.hpp"
 
 /***************************************************************
  *   Student Name: Wilver Santos
@@ -27,9 +28,16 @@ class LcsSeekerPartTwo
     private:
     const string FILE_NAME = "multiStrings.txt";
     ifstream reader;
+    string* list;
+    int numStrings;
+    char** simTable; //Similarity table.
+    char compareStrings(string xString, string yString);
 
     public:
-
+    LcsSeekerPartTwo();
+    void Run();
+    void printSimTable();
+    ~LcsSeekerPartTwo();
 
 };
 

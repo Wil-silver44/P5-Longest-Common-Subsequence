@@ -12,8 +12,7 @@
 
 void LcsSimulation::RunPOne()
 {
-    this->lcsTestOne.Lcs();
-    this->lcsTestOne.printLcs();
+    this->lcsTestOne.Run();
 }
 
 void LcsSimulation::RunPTwo()
