@@ -31,8 +31,10 @@ LcsSeekerPartOne::LcsSeekerPartOne()
 
 void LcsSeekerPartOne::Run()
 {
+	cout << "---------- PART 1 START ----------" << endl;
     this->testTool->Lcs();
     this->testTool->printLcs();
+     cout << "---------- PART 1 COMPLETE ----------" << endl;
 }
 
 LcsSeekerPartOne::~LcsSeekerPartOne()

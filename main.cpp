@@ -13,6 +13,7 @@ int main()
 {
     LcsSimulation projectSim;
 
-    //projectSim.RunPOne();
+    projectSim.RunPOne();
+
     projectSim.RunPTwo();
 }

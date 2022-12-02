@@ -20,6 +20,7 @@ using std::cout;
 using std::endl;
 using std::ifstream;
 using std::max;
+using std::min;
 using std::string;
 using std::getline;
 

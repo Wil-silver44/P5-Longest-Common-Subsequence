@@ -6,13 +6,11 @@ CXX = g++
 
 CXXFLAGS = -std=c++14 -g -Wall
 
-OBJECTS = LcsSimulation.o LcsSeekerPartOne.o LcsTool.o
+OBJECTS = LcsSimulation.o LcsSeekerPartOne.o LcsSeekerPartTwo.o LcsTool.o
 
 main: main.cpp $(OBJECTS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
-LcsPartOneTest: LcsPartOneTest.cpp LcsSeekerPartOne.o LcsTool.o
-	$(CXX) $(CXXFLAGS) -o $@ $^
 clean:
 	rm -rf
-	$(RM) *.o *.gc* LcsPartOneTest
+	$(RM) *.o *.gc* main LcsPartOneTest

@@ -13,7 +13,7 @@ LcsSeekerPartTwo::LcsSeekerPartTwo()
 
         for(int i = 0; i < this->numStrings; ++i)
         {
-            getline(this->reader, this->list[i]);
+	    this->reader >> this->list[i];
         }
 
         this->reader.close();
@@ -35,10 +35,7 @@ LcsSeekerPartTwo::LcsSeekerPartTwo()
     {
         for(int j = 0; j < this->numStrings; ++j)
         {
-            if( j <= i)
-            {
                 this->simTable[i][j] = '-';
-            }
         }
     }
 
@@ -46,15 +43,18 @@ LcsSeekerPartTwo::LcsSeekerPartTwo()
 
 void LcsSeekerPartTwo::Run()
 {
+    cout << "---------- PART 2 BEGIN ----------" << endl;
     for(int i = 0; i < this->numStrings; ++i)
     {
-        for(int j = 1; j < this->numStrings; ++j)
+        for(int j = (i + 1); j < this->numStrings; ++j)
         {
             this->simTable[i][j] = compareStrings(this->list[i], this->list[j]);
         }
     }
 
     printSimTable();
+
+    cout << "---------- PART 2 COMPLETE ----------" << endl;
 }
 
 void LcsSeekerPartTwo::printSimTable()
@@ -83,49 +83,37 @@ LcsSeekerPartTwo::~LcsSeekerPartTwo()
     }
 
     delete this->simTable;
-    delete this->list;
+
+    delete[] this->list;
 }
 
 char LcsSeekerPartTwo::compareStrings(string xString, string yString)
 {
-    LcsTool tempTool(xString, yString);
-    tempTool.Lcs();
-    double stringPercent;
-    if(yString.length() > xString.length())
-    {
+	LcsTool tempTool(xString, yString);
+	tempTool.Lcs();
+	double lcs = (double)tempTool.GetLcs();
+	string smallS = min(xString, yString);
+	string bigS = max(xString, yString);
+	double percentDiff = (smallS.length() / (double)bigS.length());
+	
         //check for high similarity-- difference within 10% of longer string and lcs 90% of shorter string
-        if((xString.length() / (yString.length() * 1.0)) > (yString.length() * 0.90) && (tempTool.GetLcs() > (0.90 * xString.length())))
+        if( (percentDiff > 0.90) && ( lcs > 0.90 ) )
         {
             return 'H';
         }
         //check for medium similarity-- difference within 20% of longer string and lcs 80% of shorter string
-        else if((xString.length() / (yString.length() * 1.0)) > (yString.length() * 0.20) && (tempTool.GetLcs() > (0.80 * xString.length())))
+        else if( (percentDiff > 0.80 ) && (lcs > 0.80) ) 
         {
             return 'M';
         }
         //check for low similarity-- difference within 40% of longer string and lcs 50% of shorter string
-        else if((xString.length() / (yString.length() * 1.0)) > (yString.length() * 0.40) && (tempTool.GetLcs() > (0.80 * xString.length())))
+        else if( (percentDiff > 0.40) && ( lcs > 0.50) ) 
         {
-            return 'D';
+            return 'L';
         }
-    }
-    else
-    {
-        //check for high similarity-- difference within 10% of longer string and lcs 90% of shorter string
-        if((yString.length() / (xString.length() * 1.0)) > (xString.length() * 0.90) && (tempTool.GetLcs() > (0.90 * yString.length())))
-        {
-            return 'H';
-        }
-        //check for medium similarity-- difference within 20% of longer string and lcs 80% of shorter string
-        else if((yString.length() / (xString.length() * 1.0)) > (xString.length() * 0.20) && (tempTool.GetLcs() > (0.80 * yString.length())))
-        {
-            return 'M';
-        }
-        //check for low similarity-- difference within 40% of longer string and lcs 50% of shorter string
-        else if((yString.length() / (xString.length() * 1.0)) > (xString.length() * 0.40) && (tempTool.GetLcs() > (0.80 * yString.length())))
-        {
-            return 'D';
-        }
-    }
-
+	else
+	{
+		return 'D';
+	}
+	return '?';
 }
