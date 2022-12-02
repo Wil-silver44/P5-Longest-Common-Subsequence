@@ -17,5 +17,5 @@ void LcsSimulation::RunPOne()
 
 void LcsSimulation::RunPTwo()
 {
-
+    this->lcsTestTwo.Run();
 }

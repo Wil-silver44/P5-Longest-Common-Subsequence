@@ -2,6 +2,7 @@
 #define LCSSIMULATION_HPP
 #include <string>
 #include "LcsSeekerPartOne.hpp"
+#include "LcsSeekerPartTwo.hpp"
 
 /***************************************************************
  *   Student Name: Wilver Santos
@@ -19,6 +20,7 @@ class LcsSimulation
 {
     private:
     LcsSeekerPartOne lcsTestOne;
+    LcsSeekerPartTwo lcsTestTwo;
 
 
     public:
