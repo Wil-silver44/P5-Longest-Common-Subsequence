@@ -1,7 +1,7 @@
-# Project 5 - Longest Common Subsequence
+# Project - Longest Common Subsequence
 ## Background
 
-As discussed in class, the longest common subsequence (LCS) problem is a common problem that arises (e.g.) in computational biology.  
+The longest common subsequence (LCS) problem is a common problem that arises (e.g.) in computational biology.  
 *Given two sequences of numbers, letters, genes, etc., x[1..m] and y[1..n], find a longest subsequence that is common to both of them.*  
 Usually no single, unique answer, but rather several possible answers exist. As we know, the brute force algorithm is **O(n*2m)** whereas the dynamic programming version is **O(m*n).** However, as we also know, the basic dynamic programming solution requires **O(2*n*m)** space.
 
@@ -64,5 +64,6 @@ The file of strings will:
 - first, contain an integer that indicates how many strings are in the file
 - followed by that number of character strings.  
 Strings will be terminated in the file by newlines.  
+
 Recognize that you can end up with memory problems in a real-world version of this problem and you should not try to read all the strings into RAM at once. This is an obvious place to use a **direct access file.**  
 We are already economizing on the amount of ram by not using the O(2*m*n) space. The reason for this is that these will be long strings and in a real-world solution, there might be a lot of them. For our purposes, you can assume there will be 20 strings or fewer. The file name you should use is multiStrings.txt
