@@ -66,32 +66,3 @@ The file of strings will:
 Strings will be terminated in the file by newlines.  
 Recognize that you can end up with memory problems in a real-world version of this problem and you should not try to read all the strings into RAM at once. This is an obvious place to use a **direct access file.**  
 We are already economizing on the amount of ram by not using the O(2*m*n) space. The reason for this is that these will be long strings and in a real-world solution, there might be a lot of them. For our purposes, you can assume there will be 20 strings or fewer. The file name you should use is multiStrings.txt
-
-#### Deliverables
-
-You will submit the following for this project:
-
-1. A User's manual for your program
-2. Your source code in C++.
-3. Your versions of twoStrings.txt and multiStrings.txt.
-4. a Makefile
-
-#### Submission: 
-
-1. Compile and run your program one last time before submitting it. Your program must run with gcc in the Linux lab.
-2. Place every file in your submission in a SINGLE DIRECTORY named <last name><first initial>. For instance, I would create directory:  brodheadk.
-3. zip that FOLDER into a .zip file with the SAME NAME. This means that inside your zip file, you will have exactly one folder (from the example: brodheadk) showing at the top level. Inside that folder will be ALL the files in your project.
-4. DO NOT make separate folders for documentation and source files (or anything else) inside the main folder. Having such a setup simply necessitates more navigation time to get where we need to go to grade.
-5. Any needed input files should be in the top-level folder along with the source code.
-6. MacOS users - remove the _MacOS_ utility folder before you zip up the file. If you cannot, delete it from the archive once the archive is created. It just takes up space and is not needed for anything we do with your submissions.
-7. Login to Canvas. Links to an external site. Select our course.
-9. Go to Assignments and select the appropriate project. Click the Submit button.
-10. Upload your zip file. Check to insure that the file was uploaded. ALWAYS give yourself enough time. If you are trying to submit at 11:57pm on your machine, the clock might be off and the dropbox might already be closed.
-
-Please review the policy on ACADEMIC MISCONDUCT. This is an individual assignment.
-
-Input file for part 1:
-[twoStrings.txt](https://uwf.instructure.com/courses/38127/files/8791960?wrap=1)
-
-Input file for part 2:
-[multiStrings.txt](https://uwf.instructure.com/courses/38127/files/8791906?wrap=1)
